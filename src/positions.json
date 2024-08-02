@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "x": 248,
+        "y": 299,
+        "color": "rgba(220, 20, 60, 0.6)",
+        "rawColor": "crimson"
+    },
+    {
+        "id": 2,
+        "x": 226,
+        "y": 350,
+        "color": "rgba(255, 165, 0, 0.6)",
+        "rawColor": "orange"
+    },
+    {
+        "id": 3,
+        "x": 246,
+        "y": 454,
+        "color": "rgba(191, 255, 0, 0.6)",
+        "rawColor": "lime"
+    },
+    {
+        "id": 4,
+        "x": 235,
+        "y": 553,
+        "color": "rgba(0, 128, 128, 0.6)",
+        "rawColor": "teal"
+    },
+    {
+        "id": 5,
+        "x": 231,
+        "y": 661,
+        "color": "rgba(0, 0, 255, 0.6)",
+        "rawColor": "blue"
+    },
+    {
+        "id": 6,
+        "x": 231,
+        "y": 760,
+        "color": "rgba(0, 255, 255, 0.6)",
+        "rawColor": "cyan"
+    },
+    {
+        "id": 7,
+        "x": 247,
+        "y": 878,
+        "color": "rgba(128, 0, 128, 0.6)",
+        "rawColor": "purple"
+    },
+    {
+        "id": 8,
+        "x": 1710,
+        "y": 225,
+        "color": "rgba(0, 0, 255, 0.6)",
+        "rawColor": "blue"
+    }
+]

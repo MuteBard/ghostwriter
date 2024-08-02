@@ -1,0 +1,74 @@
+[
+    {
+        "title": "Box 1",
+        "action": "click",
+        "seconds": 4,
+        "minutes": 0,
+        "x": 248,
+        "y": 299,
+        "text": ""
+    },
+    {
+        "title": "Box 2",
+        "action": "click",
+        "seconds": 4,
+        "minutes": 0,
+        "x": 226,
+        "y": 350,
+        "text": ""
+    },
+    {
+        "title": "Box 3",
+        "action": "click",
+        "seconds": 4,
+        "minutes": 0,
+        "x": 246,
+        "y": 454,
+        "text": ""
+    },
+    {
+        "title": "Box 4",
+        "action": "click",
+        "seconds": 4,
+        "minutes": 0,
+        "x": 235,
+        "y": 553,
+        "text": ""
+    },
+    {
+        "title": "Box 5",
+        "action": "click",
+        "seconds": 4,
+        "minutes": 0,
+        "x": 231,
+        "y": 661,
+        "text": ""
+    },
+    {
+        "title": "Box 6",
+        "action": "click",
+        "seconds": 4,
+        "minutes": 0,
+        "x": 231,
+        "y": 760,
+        "text": ""
+    },
+    {
+        "title": "Box 7",
+        "action": "click",
+        "seconds": 4,
+        "minutes": 0,
+        "x": 247,
+        "y": 878,
+        "text": ""
+    },
+    {
+        "title": "Box 8",
+        "action": "click",
+        "seconds": 4,
+        "minutes": 0,
+        "x": 1710,
+        "y": 225,
+        "text": ""
+    }
+]

@@ -1,0 +1,139 @@
+body {
+    background-color: transparent !important;
+}
+.red-box {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+canvas {
+    border: 5px dotted red; /* Add a border for visibility */
+}
+
+.custom-button, .exit-button {
+    padding: 10px 20px;
+    background-color: #0092b3; /* Button color */
+    color: white; /* Text color */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+    transform: translateY(1px); /* Move the button down slightly */
+}
+
+.exit-button {
+    background-color: #e75309;
+    padding: 15px 25px;
+    font-size: 20px;
+}
+
+.custom-button:hover{
+    background-color: #05ec5a; /* Hover color */
+}
+
+.exit-button:hover {
+    background-color: #eca705; /* Hover color */
+}
+
+.custom-button:active, .exit-button:active {
+    box-shadow: none; /* Remove shadow when button is clicked */
+    transform: translateY(2px); /* Further move the button down when clicked */
+    background-color: #0ba443;
+}
+
+.exit-button:active {
+    background-color: #b67f00; /* Hover color */
+}
+
+.startHidden {
+    display: none;
+}
+
+/* Hide the menu by default */
+.startHidden {
+    display: none;
+}
+
+
+.menuContainer {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: left;
+    height: 100%; 
+}
+
+
+.menuContainer div {
+    width: 20em;
+    height: 30em;
+    margin-bottom: 2em;
+}
+
+/* Style the menu card */
+.menuCard {
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+}
+
+
+/* Style the label for the dropdown */
+.dropdown label {
+    font-weight: bold;
+    color: rgb(50, 50, 50);
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Style the select dropdown itself */
+.dropdown select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #fff;
+    font-size: 14px;
+    color: rgb(50, 50, 50);
+}
+
+.menuCardTitle {
+    color: rgb(50, 50, 50);
+    font-weight: bold;
+    font-size: 20px;
+    font-family: Arial;
+}
+
+/* Style for the input field */
+input[type="text"] {
+    padding: 10px;
+    width: 200px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  /* Style for the input field on focus */
+  input[type="text"]:focus {
+    outline: none;
+    border-color: dodgerblue; /* Change border color on focus */
+  }
+  
+  /* Style for the submit button */
+  input[type="submit"] {
+    padding: 10px 15px;
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
