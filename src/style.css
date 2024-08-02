@@ -52,12 +52,6 @@ canvas {
     display: none;
 }
 
-/* Hide the menu by default */
-.startHidden {
-    display: none;
-}
-
-
 .menuContainer {
     margin-top: 2em;
     display: flex;
@@ -76,16 +70,19 @@ canvas {
 }
 
 /* Style the menu card */
-.menuCard {
+.menuCard{
     display: flex;
     flex-direction: column;
     background-color: #f9f9f9;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 7px solid #abbfb5;
     border-radius: 5px;
-    width: 200px;
+    width: 5em;
+    color: rgb(50, 50, 50);
+    font-weight: bold;
+    font-size: 15px;
+    font-family: Arial;
 }
-
 
 /* Style the label for the dropdown */
 .dropdown label {
@@ -102,7 +99,7 @@ canvas {
     border: 1px solid #ccc;
     border-radius: 3px;
     background-color: #fff;
-    font-size: 14px;
+    font-size: 12px;
     color: rgb(50, 50, 50);
 }
 

@@ -34,71 +34,96 @@ const selectMinutes = [
 	},
 ];
 
+const selectLoops = [
+	{
+		key: "id",
+		value: `loops`,
+	},
+	{
+		key: "name",
+		value: `loops`,
+	},
+];
+
 const actionOptions = [
-    {
-        text: "Click",
-        attributes: [
-            {
-                key: "value",
-                value: "click",
-            },
-        ],
-    },
-    {
-        text: "Click and Type",
-        attributes: [
-            {
-                key: "value",
-                value: "click-type",
-            },
-        ],
-    },
-    {
-        text: "Click and Scroll",
-        attributes: [
-            {
-                key: "value",
-                value: "click-scroll",
-            },
-        ],
-    },
-    {
-        text: "Click and Drag",
-        attributes: [
-            {
-                key: "value",
-                value: "click-drag",
-            },
-        ],
-    },
+	{
+		text: "Click",
+		attributes: [
+			{
+				key: "value",
+				value: "click",
+			},
+		],
+	},
+	{
+		text: "Click and Type",
+		attributes: [
+			{
+				key: "value",
+				value: "click-type",
+			},
+		],
+	},
+	{
+		text: "Click and Scroll",
+		attributes: [
+			{
+				key: "value",
+				value: "click-scroll",
+			},
+		],
+	},
+	{
+		text: "Click and Drag",
+		attributes: [
+			{
+				key: "value",
+				value: "click-drag",
+			},
+		],
+	},
 ];
 
 const secondOptions = [...Array(60)].map((_, index) => {
-    const number = index + 1;
-    return {
-        text: number === 1 ? `${number} second` : `${number} seconds`,
-        attributes: [
-            {
-                key: "value",
-                value: `${number}`,
-            },
-        ],
-    };
+	const number = index + 1;
+	return {
+		text: number === 1 ? `${number} second` : `${number} seconds`,
+		attributes: [
+			{
+				key: "value",
+				value: number,
+			},
+		],
+	};
 });
 
 const minuteOptions = [...Array(60)].map((_, index) => {
-    const number = index;
-    return {
-        text: number === 1 ? `${number} minute` : `${number} minutes`,
-        attributes: [
-            {
-                key: "value",
-                value: `${number}`,
-            },
-        ],
-    };
+	const number = index;
+	return {
+		text: number === 1 ? `${number} minute` : `${number} minutes`,
+		attributes: [
+			{
+				key: "value",
+				value: number,
+			},
+		],
+	};
 });
 
+const loopOptions = [0, 1, 3, 5, 10, 15, 20, 25, 50, 100, 250, 500, 1000].map(
+	(values) => {
+		const number = values;
+		return {
+			text: number === 1 ? `${number} loop` : `${number} loops`,
+			attributes: [
+				{
+					key: "value",
+					value: number,
+				},
+			],
+		};
+	}
+);
 
 async function handleTimings() {
 	await hidePositionPhase();
@@ -108,38 +133,50 @@ function handlePosition() {
 	hideTimingPhase();
 }
 
-
-function handleMenu(){
-    findClickAndType()
+function handleMenu() {
+	findClickAndType();
 }
 
 async function handleSaveTime() {
 	const menuCards = Array.from(document.querySelectorAll(".menuCard"));
-    const path = './positions-actions-timings.json'
-	const content = JSON.stringify(menuCards.map((menuCard, index) => {
-        const title = menuCard.children[0].innerHTML;
-        const action = menuCard.children[1].children[1].value;
-        const seconds = Number(menuCard.children[2].children[1].value);
-        const minutes = Number(menuCard.children[3].children[1].value);
-        let text = "";
+    const loopCard = menuCards.pop();
+	const path = "./positions-actions-timings.json";
+	const timeResults = menuCards.map((menuCard, index) => {
+			const title = menuCard.children[0].innerHTML;
+			const action = menuCard.children[1].children[1].value;
+			const seconds = Number(menuCard.children[2].children[1].value);
+			const minutes = Number(menuCard.children[3].children[1].value);
+			let text = "";
 
-        if (Array.from(menuCard.children).length === 5) {
-            text = menuCard.children[4].value
-        }
+			if (Array.from(menuCard.children).length === 5) {
+				text = menuCard.children[4].value;
+			}
 
-        const results = {title, action, seconds, minutes, x: allBoxes[index].x, y: allBoxes[index].y, text};
-        return results;
-	}), null, 4);
+			return {
+				title,
+				action,
+				seconds,
+				minutes,
+				x: allBoxes[index].x,
+				y: allBoxes[index].y,
+				text,
+			};
+	});
 
-    await makeFile(path, content);
+    let loopResults = Number(loopCard.children[1].children[1].value);
 
-    const container = document.getElementById("container");
+	await makeFile(
+		path,
+		JSON.stringify({ time: timeResults, loops: loopResults }, null, 4)
+	);
+
+	const container = document.getElementById("container");
 	const savePosition = document.getElementById("save-position");
 	const time = document.getElementById("time");
-    const saveTime = document.getElementById("save-time");
+	const saveTime = document.getElementById("save-time");
 	const position = document.getElementById("position");
 	const menu = document.getElementById("menu");
-    const exit = document.getElementById("exit");
+	const exit = document.getElementById("exit");
 
 	container.style.display = "none";
 	savePosition.style.display = "none";
@@ -147,53 +184,50 @@ async function handleSaveTime() {
 	position.style.display = "none";
 	menu.style.display = "none";
 	menu.innerHTML = "";
-    saveTime.style.display = 'none';
-    exit.style.display = 'inline';
+	saveTime.style.display = "none";
+	exit.style.display = "inline";
 }
 
-function handleExit(){
-    if (typeof nw !== 'undefined' && nw.App) {
-        console.log("Exiting the NW.js application...");
-        nw.App.quit(); 
-    }
+function handleExit() {
+	if (typeof nw !== "undefined" && nw.App) {
+		console.log("Exiting the NW.js application...");
+		nw.App.quit();
+	}
 }
-
 
 async function hidePositionPhase() {
 	const container = document.getElementById("container");
 	const savePosition = document.getElementById("save-position");
 	const time = document.getElementById("time");
-    const saveTime = document.getElementById("save-time");
+	const saveTime = document.getElementById("save-time");
 	const position = document.getElementById("position");
 	const menu = document.getElementById("menu");
-    const add = document.getElementById("add");
-    const remove = document.getElementById("remove");
-
+	const add = document.getElementById("add");
+	const remove = document.getElementById("remove");
 
 	container.style.display = "none";
 	savePosition.style.display = "none";
 	time.style.display = "none";
 	position.style.display = "inline";
 	menu.style.display = "flex";
-    saveTime.style.display = 'inline';
-    add.style.display = 'none'
-    remove.style.display = 'none'
+	saveTime.style.display = "inline";
+	add.style.display = "none";
+	remove.style.display = "none";
 
 	const strData = await getJsonData();
 	allBoxes = JSON.parse(strData);
 	buildMenu(allBoxes);
 }
 
-
 function hideTimingPhase() {
 	const container = document.getElementById("container");
 	const savePosition = document.getElementById("save-position");
 	const time = document.getElementById("time");
-    const saveTime = document.getElementById("save-time");
+	const saveTime = document.getElementById("save-time");
 	const position = document.getElementById("position");
 	const menu = document.getElementById("menu");
-    const add = document.getElementById("add");
-    const remove = document.getElementById("remove");
+	const add = document.getElementById("add");
+	const remove = document.getElementById("remove");
 
 	container.style.display = "block";
 	savePosition.style.display = "inline";
@@ -201,11 +235,10 @@ function hideTimingPhase() {
 	position.style.display = "none";
 	menu.style.display = "none";
 	menu.innerHTML = "";
-    saveTime.style.display = 'none';
-    add.style.display = 'inline'
-    remove.style.display = 'inline'
+	saveTime.style.display = "none";
+	add.style.display = "inline";
+	remove.style.display = "inline";
 }
-
 
 async function getJsonData() {
 	const path = "./positions.json";
@@ -218,47 +251,47 @@ function buildMenu(boxes) {
 		const menuCard = createMenuCard(box);
 		menu.appendChild(menuCard);
 	});
+	const loopsCard = createLoopsCard();
+	menu.appendChild(loopsCard);
 }
 
-
-function findClickAndType(){
-    const menuCards = Array.from(document.querySelectorAll('.menuCard'));
-    menuCards.forEach((menuCard) => { 
-        const select = menuCard.children[1].children[1];
-
-        if ( select.value === 'click-type' && menuCard.children.length <= 4){
-            // const inputDiv = document.createElement('div');
-            // inputDiv.setAttribute()
-
-            const input = document.createElement('input');
-
-            input.type = 'text';
-            input.placeholder = 'Enter your text'
-            menuCard.appendChild(input); 
-        }
-    })
+function findClickAndType() {
+	const menuCards = Array.from(document.querySelectorAll(".menuCard"));
+	menuCards.forEach((menuCard) => {
+		const select = menuCard.children[1].children[1];
+		if (select.value === "click-type" && menuCard.children.length <= 4) {
+			const input = document.createElement("input");
+			input.type = "text";
+			input.placeholder = "Enter your text";
+			menuCard.appendChild(input);
+		}
+	});
 }
 
-function createDropDown(box, labelText, selectList, optionsList){
+function createDropDown(box, labelText, selectList, optionsList) {
 	const dropDownContainer = document.createElement("div");
 	const label = document.createElement("label");
 	const select = document.createElement("select");
 
-    dropDownContainer.classList.add("dropdown");
-    label.innerHTML = labelText;
+	dropDownContainer.classList.add("dropdown");
+	label.innerHTML = labelText;
 
-    selectList.map(attribute => select.setAttribute(attribute.key, `box-${box.id}-${attribute.value}`));
-    optionsList.map(optionData => {
-        const option = document.createElement("option");
-        option.innerHTML = optionData.text
-        optionData.attributes.map(attribute => option.setAttribute(attribute.key, attribute.value));
-        select.appendChild(option);
-    })
+	selectList.map((attribute) =>
+		select.setAttribute(attribute.key, `box-${box.id}-${attribute.value}`)
+	);
+	optionsList.map((optionData) => {
+		const option = document.createElement("option");
+		option.innerHTML = optionData.text;
+		optionData.attributes.map((attribute) =>
+			option.setAttribute(attribute.key, attribute.value)
+		);
+		select.appendChild(option);
+	});
 
-    dropDownContainer.appendChild(label)
-    dropDownContainer.appendChild(select);
+	dropDownContainer.appendChild(label);
+	dropDownContainer.appendChild(select);
 
-    return dropDownContainer;
+	return dropDownContainer;
 }
 
 function createMenuCard(box) {
@@ -266,9 +299,24 @@ function createMenuCard(box) {
 	const menuCard = document.createElement("div");
 	const h3 = document.createElement("h3");
 
-    const dropDown1 = createDropDown(box, "Select an Action", selectAction, actionOptions);
-    const dropDown2 = createDropDown(box, "Duration in Seconds", selectSeconds, secondOptions);
-    const dropDown3 = createDropDown(box, "Duration in Minutes", selectMinutes, minuteOptions);
+	const dropDownAction = createDropDown(
+		box,
+		"Select an Action",
+		selectAction,
+		actionOptions
+	);
+	const dropDownSeconds = createDropDown(
+		box,
+		"Duration in Seconds",
+		selectSeconds,
+		secondOptions
+	);
+	const dropDownMinutes = createDropDown(
+		box,
+		"Duration in Minutes",
+		selectMinutes,
+		minuteOptions
+	);
 
 	//populate elements and classes
 	menuCard.classList.add("menuCard");
@@ -279,9 +327,32 @@ function createMenuCard(box) {
 	h3.innerHTML = `Box ${box.id}`;
 
 	menuCard.appendChild(h3);
-    menuCard.appendChild(dropDown1)
-    menuCard.appendChild(dropDown2)
-    menuCard.appendChild(dropDown3)
+	menuCard.appendChild(dropDownAction);
+	menuCard.appendChild(dropDownSeconds);
+	menuCard.appendChild(dropDownMinutes);
+
+	return menuCard;
+}
+
+function createLoopsCard() {
+	const menuCard = document.createElement("div");
+	const h3 = document.createElement("h3");
+
+	const dropDownLoops = createDropDown(
+		{ id: -1 },
+		"Number of Loops",
+		selectLoops,
+		loopOptions
+	);
+	menuCard.classList.add("menuCard", "loopCard");
+	menuCard.style.backgroundColor = "#bcdefe";
+	menuCard.style.opacity = 1;
+
+	h3.classList.add("menuCardTitle");
+	h3.innerHTML = `Loop Instructions`;
+
+	menuCard.appendChild(h3);
+	menuCard.appendChild(dropDownLoops);
 
 	return menuCard;
 }
@@ -300,4 +371,3 @@ saveTime.addEventListener("click", handleSaveTime);
 
 const exit = document.getElementById("exit");
 exit.addEventListener("click", handleExit);
-
