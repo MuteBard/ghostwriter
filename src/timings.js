@@ -111,7 +111,7 @@ const minuteOptions = [...Array(60)].map((_, index) => {
 	};
 });
 
-const loopOptions = [0, 1, 3, 5, 10, 15, 20, 25, 50, 100, 250, 500, 1000].map(
+const loopOptions = [1, 3, 5, 10, 15, 20, 25, 50, 100, 250, 500, 1000].map(
 	(values) => {
 		const number = values;
 		return {
