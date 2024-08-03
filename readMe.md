@@ -22,4 +22,4 @@ After installing Node.js, you can set up the project by following these steps:
 
 ## Running the program
 
-1. Run `npm run start`
+1. Run `npm start`
