@@ -8,7 +8,7 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cAmGL6eiNZ8" frameborder="0" allowfullscreen></iframe>
 
 ## To run it on an exe (Recommended)
-1.  Extract the zip file: https://drive.google.com/file/d/1vJ5-fYesCpx6H7hYcnoXfPJNy-L0JA7e/view?usp=sharing
+1.  Extract the zip file: https://drive.google.com/file/d/13MEkiqzDSqqsW-pxE0TaEkfDsChFNZcI/view?usp=sharing
 2.  Navigate to `dist/run` and then click on `src.exe`
 
 
@@ -37,7 +37,6 @@ After installing Node.js, you can set up the project by following these steps:
 - 0.2.0 
   - Added ability to cancel loop process by cancel button or escape key at any point
   - Able to select either single or double click from drop down menus
-  - Can create an application for mac os
 - 0.1.0 
   - Created Project
   - Can create an application for windows
