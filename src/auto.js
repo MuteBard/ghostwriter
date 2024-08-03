@@ -48,6 +48,10 @@ async function actionSelector(box) {
 		case "click":
 			await simpleClick(box);
 			break;
+		case "click-double":
+			await simpleClick(box);
+			await simpleClick(box);
+			break;
 		case "click-type":
 			clickType(box);
 			break;

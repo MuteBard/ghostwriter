@@ -48,11 +48,20 @@ const selectLoops = [
 
 const actionOptions = [
 	{
-		text: "Click",
+		text: "Single Click",
 		attributes: [
 			{
 				key: "value",
 				value: "click",
+			},
+		],
+	},
+	{
+		text: "Double Click",
+		attributes: [
+			{
+				key: "value",
+				value: "click-double",
 			},
 		],
 	},
@@ -177,7 +186,7 @@ async function handleSaveTime() {
 	const saveTime = document.getElementById("save-time");
 	const position = document.getElementById("position");
 	const menu = document.getElementById("menu");
-	const exit = document.getElementById("exit");
+	const run = document.getElementById("run");
 
 	container.style.display = "none";
 	savePosition.style.display = "none";
@@ -186,18 +195,29 @@ async function handleSaveTime() {
 	menu.style.display = "none";
 	menu.innerHTML = "";
 	saveTime.style.display = "none";
-	exit.style.display = "inline";
+	run.style.display = "inline";
 }
 
-async function handleExit() {
+async function handleRun() {
+	const run = document.getElementById("run");
+	run.style.display = "none";
 	if (typeof nw !== "undefined" && nw.App) {
-		console.log("Exiting the NW.js application...");
 		const win = nw.Window.get();
-		win.hide();
-		console.log("asdad");
+		win.resizeTo(100, 100);
 		await execute();
 	}
 }
+
+function handleCancel(){
+	process.exit(1);
+}
+
+window.addEventListener('keydown', function(event) {
+    if (event.keyCode === 27 || event.key === 'Escape') { 
+        // Close the NW.js window
+        process.exit(1);
+    }
+});
 
 async function hidePositionPhase() {
 	const container = document.getElementById("container");
@@ -373,5 +393,8 @@ menuBlock.addEventListener("click", handleMenu);
 const saveTime = document.getElementById("save-time");
 saveTime.addEventListener("click", handleSaveTime);
 
-const exit = document.getElementById("exit");
-exit.addEventListener("click", handleExit);
+const run = document.getElementById("run");
+run.addEventListener("click", handleRun);
+
+const cancel = document.getElementById("cancel");
+cancel.addEventListener("click", handleCancel);
