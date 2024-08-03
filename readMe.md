@@ -5,7 +5,7 @@
     Dictate positions of clicks and their durations and then executing them in loops.
 
 ## Demo
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cAmGL6eiNZ8" frameborder="0" allowfullscreen></iframe>
+https://www.youtube.com/embed/cAmGL6eiNZ8
 
 ## To run it on an exe (Recommended)
 1.  Extract the zip file: https://drive.google.com/file/d/13MEkiqzDSqqsW-pxE0TaEkfDsChFNZcI/view?usp=sharing
