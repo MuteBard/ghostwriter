@@ -8,7 +8,7 @@
 https://www.youtube.com/embed/cAmGL6eiNZ8
 
 ## To run it on an exe (Recommended)
-1.  Extract the zip file: https://drive.google.com/file/d/1S1osZrSLY5gx9L34chl7o4GwWOeR5GNh/view?usp=drive_link
+1.  Extract the zip file: https://drive.google.com/file/d/1qhP73y1r6GRHkOZRtLDlKvdzGydwuGzV/view?usp=drive_link
 2.  Navigate to `dist/run` and then click on `src.exe`
 
 
