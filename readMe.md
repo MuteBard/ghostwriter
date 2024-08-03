@@ -37,5 +37,7 @@ After installing Node.js, you can set up the project by following these steps:
 - 0.2.0 
   - Added ability to cancel loop process by cancel button or escape key at any point
   - Able to select either single or double click from drop down menus
+  - Can create an application for mac os
 - 0.1.0 
   - Created Project
+  - Can create an application for windows
