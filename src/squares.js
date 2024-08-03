@@ -30,12 +30,10 @@ function generateColorTarget(id, x, y) {
 }
 
 function updateBoxCount() {
-	console.log(boxes);
 	positions = [...Array(boxIndex)].map(
 		(_, index) => createCells(10, 10)[index]
 	);
 	boxes = positions.map((pos) => generateColorTarget(pos.id, pos.x, pos.y));
-	console.log(boxes);
 	reDrawBoxes();
 }
 

@@ -127,6 +127,19 @@ canvas {
 	font-family: Arial;
 }
 
+.counters {
+	background-color:  rgb(50, 50, 50);
+	color: #ccc;
+	font-weight: bold;
+	font-size: 18px;
+	font-family: Arial;
+	padding: 10px 20px;
+	border-radius: 3px;
+}
+.space {
+	margin-left: 1em;
+}
+
 /* Style for the input field */
 input[type="text"] {
 	padding: 10px;

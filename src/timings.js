@@ -1,5 +1,4 @@
 const { getFile } = require("./service/fileManager");
-const { execute } = require("./auto");
 
 let allBoxes = [];
 const selectAction = [
@@ -200,10 +199,12 @@ async function handleSaveTime() {
 
 async function handleRun() {
 	const run = document.getElementById("run");
+	const stats = document.getElementById("stats");
 	run.style.display = "none";
+	stats.style.display = "inline";
 	if (typeof nw !== "undefined" && nw.App) {
 		const win = nw.Window.get();
-		win.resizeTo(100, 100);
+		win.resizeTo(900, 100);
 		await execute();
 	}
 }
@@ -241,8 +242,13 @@ async function hidePositionPhase() {
 	const strData = await getJsonData();
 	allBoxes = JSON.parse(strData);
 	buildMenu(allBoxes);
-}
 
+// 	// Get the NW.js window instance
+// const win = nw.Window.get();
+
+// // Open the developer tools programmatically
+// win.showDevTools();
+}
 function hideTimingPhase() {
 	const container = document.getElementById("container");
 	const savePosition = document.getElementById("save-position");
@@ -398,3 +404,4 @@ run.addEventListener("click", handleRun);
 
 const cancel = document.getElementById("cancel");
 cancel.addEventListener("click", handleCancel);
+
