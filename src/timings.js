@@ -56,33 +56,33 @@ const actionOptions = [
 			},
 		],
 	},
-	{
-		text: "Click and Type",
-		attributes: [
-			{
-				key: "value",
-				value: "click-type",
-			},
-		],
-	},
-	{
-		text: "Click and Scroll",
-		attributes: [
-			{
-				key: "value",
-				value: "click-scroll",
-			},
-		],
-	},
-	{
-		text: "Click and Drag",
-		attributes: [
-			{
-				key: "value",
-				value: "click-drag",
-			},
-		],
-	},
+	// {
+	// 	text: "Click and Type",
+	// 	attributes: [
+	// 		{
+	// 			key: "value",
+	// 			value: "click-type",
+	// 		},
+	// 	],
+	// },
+	// {
+	// 	text: "Click and Scroll",
+	// 	attributes: [
+	// 		{
+	// 			key: "value",
+	// 			value: "click-scroll",
+	// 		},
+	// 	],
+	// },
+	// {
+	// 	text: "Click and Drag",
+	// 	attributes: [
+	// 		{
+	// 			key: "value",
+	// 			value: "click-drag",
+	// 		},
+	// 	],
+	// },
 ];
 
 const secondOptions = [...Array(60)].map((_, index) => {
