@@ -16,7 +16,7 @@ To get started with this project, you will need to have Node.js installed. Pleas
 
 After installing Node.js, you can set up the project by following these steps:
 
-1. Either copy the zip file or clone the repository to your computer. 
+1. Either download the zip file or clone the repository to your computer. 
 2. Navigate to the project directory in your terminal.
 3. Run `npm install`
 
