@@ -13,8 +13,7 @@
   "dependencies": {
     "@nut-tree-fork/nut-js": "^4.2.2",
     "fs-extra": "^11.2.0",
-    "nw": "^0.90.0",
-    "tinycolor2": "^1.6.0"
+    "nw": "^0.90.0"
   },
   "devDependencies": {
     "nw-builder": "^4.8.0"
