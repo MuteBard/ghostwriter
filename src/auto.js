@@ -11,12 +11,23 @@ async function execute() {
 	const { time: updatedBoxes, loops: loopTimes } = JSON.parse(boxes);
 	const loopedBoxes = loop(loopTimes, updatedBoxes);
 	const sequentialTimes = makeTimeSequential(loopedBoxes);
+	const deathBox = {
+		title: 'Final Process',
+		action: 'exit',
+		seconds: 1,
+		minutes: 0,
+		x: 0,
+		y: 0,
+		text: '',
+		time: sequentialTimes[sequentialTimes.length - 1] + 1000
+	  }
 	const finalBoxes = loopedBoxes.map((box, index) => {
 		return {
 			...box,
 			time: sequentialTimes[index],
 		};
 	});
+	finalBoxes.push(deathBox);
 	finalBoxes.forEach((box) => processActions(box));
 	return finalBoxes;
 }
@@ -27,7 +38,7 @@ async function processActions(box) {
 			box.minutes == 1 ? `${box.minutes} minute` : `${box.minutes} minutes`;
 		const secondsStr =
 			box.seconds == 1 ? `${box.seconds} second` : `${box.seconds} seconds`;
-		console.log(`Executing ${box.title} in ${minutesStr} and ${secondsStr}`);
+		console.log(`Executed ${box.title} in ${minutesStr} and ${secondsStr}`);
 		await actionSelector(box);
 	}, box.time);
 }
@@ -44,6 +55,8 @@ async function actionSelector(box) {
 			break;
 		case "click-drag":
 			break;
+		case "exit":
+			process.exit(1);
 		default:
 			throw new Error(`Unknown action given for ${box.title}:  ${box.action}`);
 	}

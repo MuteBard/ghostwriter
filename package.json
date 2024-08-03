@@ -5,8 +5,7 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "boxes": "nw src/",
-    "loop": "node main.js"
+    "start": "nw src/"
   },
   "author": "",
   "license": "ISC",
