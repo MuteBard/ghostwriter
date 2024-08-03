@@ -141,7 +141,7 @@ function handleMenu() {
 async function handleSaveTime() {
 	const menuCards = Array.from(document.querySelectorAll(".menuCard"));
 	const loopCard = menuCards.pop();
-	const path = "./positions-actions-timings.json";
+	const path = "./data/positions-actions-timings.json";
 	const timeResults = menuCards.map((menuCard, index) => {
 		const title = menuCard.children[0].innerHTML;
 		const action = menuCard.children[1].children[1].value;
@@ -245,7 +245,7 @@ function hideTimingPhase() {
 }
 
 async function getJsonData() {
-	const path = "./positions.json";
+	const path = "./data/positions.json";
 	return await getFile(path);
 }
 

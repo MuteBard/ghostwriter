@@ -162,7 +162,7 @@ function prepareOutput(boxes) {
 }
 
 async function handleSavePositions() {
-	const path = "./positions.json";
+	const path = "./data/positions.json";
 	const content = output;
 	await makeFile(path, content);
 }

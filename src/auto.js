@@ -2,7 +2,7 @@ const { mouse: robot, Point, Button } = require("@nut-tree-fork/nut-js");
 const { getFile } = require("./service/fileManager");
 
 async function getData() {
-	const path = "./positions-actions-timings.json";
+	const path = "./data/positions-actions-timings.json";
 	return getFile(path);
 }
 

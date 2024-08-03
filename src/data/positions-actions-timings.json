@@ -5,8 +5,8 @@
             "action": "click",
             "seconds": 3,
             "minutes": 0,
-            "x": 233,
-            "y": 328,
+            "x": 221,
+            "y": 282,
             "text": ""
         },
         {
@@ -14,17 +14,8 @@
             "action": "click",
             "seconds": 3,
             "minutes": 0,
-            "x": 219,
-            "y": 437,
-            "text": ""
-        },
-        {
-            "title": "Box 3",
-            "action": "click",
-            "seconds": 3,
-            "minutes": 0,
-            "x": 210,
-            "y": 535,
+            "x": 225,
+            "y": 386,
             "text": ""
         }
     ],
