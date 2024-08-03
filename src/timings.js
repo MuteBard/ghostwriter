@@ -1,4 +1,5 @@
 const { getFile } = require("./service/fileManager");
+const { execute } = require("./auto");
 
 let allBoxes = [];
 const selectAction = [
@@ -139,31 +140,31 @@ function handleMenu() {
 
 async function handleSaveTime() {
 	const menuCards = Array.from(document.querySelectorAll(".menuCard"));
-    const loopCard = menuCards.pop();
+	const loopCard = menuCards.pop();
 	const path = "./positions-actions-timings.json";
 	const timeResults = menuCards.map((menuCard, index) => {
-			const title = menuCard.children[0].innerHTML;
-			const action = menuCard.children[1].children[1].value;
-			const seconds = Number(menuCard.children[2].children[1].value);
-			const minutes = Number(menuCard.children[3].children[1].value);
-			let text = "";
+		const title = menuCard.children[0].innerHTML;
+		const action = menuCard.children[1].children[1].value;
+		const seconds = Number(menuCard.children[2].children[1].value);
+		const minutes = Number(menuCard.children[3].children[1].value);
+		let text = "";
 
-			if (Array.from(menuCard.children).length === 5) {
-				text = menuCard.children[4].value;
-			}
+		if (Array.from(menuCard.children).length === 5) {
+			text = menuCard.children[4].value;
+		}
 
-			return {
-				title,
-				action,
-				seconds,
-				minutes,
-				x: allBoxes[index].x,
-				y: allBoxes[index].y,
-				text,
-			};
+		return {
+			title,
+			action,
+			seconds,
+			minutes,
+			x: allBoxes[index].x,
+			y: allBoxes[index].y,
+			text,
+		};
 	});
 
-    let loopResults = Number(loopCard.children[1].children[1].value);
+	let loopResults = Number(loopCard.children[1].children[1].value);
 
 	await makeFile(
 		path,
@@ -188,10 +189,13 @@ async function handleSaveTime() {
 	exit.style.display = "inline";
 }
 
-function handleExit() {
+async function handleExit() {
 	if (typeof nw !== "undefined" && nw.App) {
 		console.log("Exiting the NW.js application...");
-		nw.App.quit();
+		const win = nw.Window.get();
+		win.hide();
+		console.log("asdad");
+		await execute();
 	}
 }
 

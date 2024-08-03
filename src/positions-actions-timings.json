@@ -3,30 +3,30 @@
         {
             "title": "Box 1",
             "action": "click",
-            "seconds": 2,
+            "seconds": 3,
             "minutes": 0,
-            "x": 226,
-            "y": 280,
+            "x": 233,
+            "y": 328,
             "text": ""
         },
         {
             "title": "Box 2",
             "action": "click",
-            "seconds": 2,
+            "seconds": 3,
             "minutes": 0,
-            "x": 218,
-            "y": 434,
+            "x": 219,
+            "y": 437,
             "text": ""
         },
         {
             "title": "Box 3",
             "action": "click",
-            "seconds": 2,
+            "seconds": 3,
             "minutes": 0,
-            "x": 240,
-            "y": 589,
+            "x": 210,
+            "y": 535,
             "text": ""
         }
     ],
-    "loops": 5
+    "loops": 3
 }

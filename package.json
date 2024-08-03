@@ -11,11 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fs-extra": "^11.2.0"
-  },
-  "devDependencies": {
-    "nw": "^0.44.0-sdk",
+    "@nut-tree-fork/nut-js": "^4.2.2",
+    "fs-extra": "^11.2.0",
+    "nw": "^0.90.0",
     "nw-builder": "^4.8.0",
-    "robotjs": "^0.6.0"
+    "tinycolor2": "^1.6.0"
   }
 }

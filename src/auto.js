@@ -1,14 +1,14 @@
-const robot = require("robotjs");
-const { getFile } = require("./src/service/fileManager");
+const { mouse: robot, Point, Button } = require("@nut-tree-fork/nut-js");
+const { getFile } = require("./service/fileManager");
 
 async function getData() {
-	const path = "./src/positions-actions-timings.json";
+	const path = "./positions-actions-timings.json";
 	return getFile(path);
 }
 
 async function execute() {
 	const boxes = await getData();
-	const {time: updatedBoxes, loops: loopTimes} = JSON.parse(boxes);
+	const { time: updatedBoxes, loops: loopTimes } = JSON.parse(boxes);
 	const loopedBoxes = loop(loopTimes, updatedBoxes);
 	const sequentialTimes = makeTimeSequential(loopedBoxes);
 	const finalBoxes = loopedBoxes.map((box, index) => {
@@ -22,20 +22,20 @@ async function execute() {
 }
 
 async function processActions(box) {
-	setTimeout(() => {
+	setTimeout(async () => {
 		const minutesStr =
 			box.minutes == 1 ? `${box.minutes} minute` : `${box.minutes} minutes`;
 		const secondsStr =
 			box.seconds == 1 ? `${box.seconds} second` : `${box.seconds} seconds`;
 		console.log(`Executing ${box.title} in ${minutesStr} and ${secondsStr}`);
-		actionSelector(box);
+		await actionSelector(box);
 	}, box.time);
 }
 
-function actionSelector(box) {
+async function actionSelector(box) {
 	switch (box.action) {
 		case "click":
-			simpleClick(box);
+			await simpleClick(box);
 			break;
 		case "click-type":
 			clickType(box);
@@ -55,23 +55,18 @@ function loop(times, boxes) {
 	});
 }
 
-function simpleClick(box) {
-	robot.moveMouse(box.x, box.y);
-	// robot.keyTap('control')
-	// robot.keyTap('control')
-	robot.mouseClick();
-	robot.mouseClick();
-	robot.mouseClick();
-	robot.mouseClick();
-	robot.mouseClick();
-	robot.mouseClick();
+async function simpleClick(box) {
+	const point = new Point(box.x, box.y);
+	await robot.setPosition(point);
+	await robot.click(Button.LEFT);
+	await robot.click(Button.LEFT);
+	await robot.click(Button.LEFT);
+	await robot.click(Button.LEFT);
+	await robot.click(Button.LEFT);
+	await robot.click(Button.LEFT);
 }
 
-function clickType(box) {
-	robot.moveMouseSmooth(box.x, box.y);
-	robot.mouseClick();
-	robot.typeString(box.text);
-}
+function clickType(box) {}
 
 function clickDrag(box) {}
 

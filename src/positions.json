@@ -1,23 +1,23 @@
 [
     {
         "id": 1,
-        "x": 226,
-        "y": 280,
-        "color": "rgba(0, 0, 255, 0.6)",
-        "rawColor": "blue"
+        "x": 233,
+        "y": 328,
+        "color": "rgba(255, 255, 0, 0.6)",
+        "rawColor": "yellow"
     },
     {
         "id": 2,
-        "x": 218,
-        "y": 434,
-        "color": "rgba(0, 0, 255, 0.6)",
-        "rawColor": "blue"
+        "x": 219,
+        "y": 437,
+        "color": "rgba(62, 180, 137, 0.6)",
+        "rawColor": "mint"
     },
     {
         "id": 3,
-        "x": 240,
-        "y": 589,
-        "color": "rgba(0, 128, 128, 0.6)",
-        "rawColor": "teal"
+        "x": 210,
+        "y": 535,
+        "color": "rgba(0, 0, 255, 0.6)",
+        "rawColor": "blue"
     }
 ]
