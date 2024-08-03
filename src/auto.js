@@ -72,11 +72,6 @@ async function simpleClick(box) {
 	const point = new Point(box.x, box.y);
 	await robot.setPosition(point);
 	await robot.click(Button.LEFT);
-	await robot.click(Button.LEFT);
-	await robot.click(Button.LEFT);
-	await robot.click(Button.LEFT);
-	await robot.click(Button.LEFT);
-	await robot.click(Button.LEFT);
 }
 
 function clickType(box) {}
